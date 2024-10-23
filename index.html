@@ -8,8 +8,8 @@
         @font-face {
             font-family: 'Atomic';
             src: url('https://github.com/viltu08/Atomic/blob/c0b9d78f1abdc433779f053475acd6c117b60d45/AtomicVF.woff2') format('woff2');
-            font-weight: 100 900; /* Range of font weights */
-            font-stretch: 75% 125%; /* Range of font widths */
+            font-weight: 100 900;
+            font-stretch: 75% 125%;
         }
 
         body {
@@ -29,21 +29,43 @@
             color: #4D4DFF;
             transition: font-variation-settings 2s ease;
         }
+
+        .char {
+            display: inline-block;
+            transition: transform 2s ease-out, color 2s ease-out;
+        }
+
+        .char:hover {
+            transform: scale(2);
+            color: #FFFF00;
+            transition: transform 0s, color 0s;
+        }
+
+        .char:not(:hover) {
+            transition: transform 2s ease-out, color 2s ease-out;
+        }
     </style>
 </head>
 <body>
 
-    <h1 id="atomicText">ATOMIC</h1>
+    <h1 id="atomicText">
+        <span class="char">A</span>
+        <span class="char">T</span>
+        <span class="char">O</span>
+        <span class="char">M</span>
+        <span class="char">I</span>
+        <span class="char">C</span>
+    </h1>
 
     <script>
         const atomicText = document.getElementById('atomicText');
 
         atomicText.addEventListener('mouseover', () => {
-            atomicText.style.fontVariationSettings = "'NCLS' 1000, 'ORBT' 1000"; // Full range on hover
+            atomicText.style.fontVariationSettings = "'NCLS' 1000, 'ORBT' 1000";
         });
 
         atomicText.addEventListener('mouseout', () => {
-            atomicText.style.fontVariationSettings = "'NCLS' 0, 'ORBT' 0"; // Reverts to mid-range on mouse out
+            atomicText.style.fontVariationSettings = "'NCLS' 0, 'ORBT' 0";
         });
     </script>
 
