@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handmade Web</title>
+    <title>Tribute to a Handmade Web</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
@@ -151,7 +151,7 @@
     pointer-events: none;
     mix-blend-mode: difference;
     z-index: 1000;
-    position: absolute;
+    position: absolute; /* Make sure this is absolute */
 }
 
 
@@ -200,22 +200,28 @@
             <span class="char">B</span>
         </h2>
 
-        <div class="container" style="top: 200px; left: 100px;">web pages coded by hand rather than by software</div>
-        <div class="container" style="top: 300px; left: 300px;">web pages which are provisional, temporary, or
-            one-of-a-kind</div>
-        <div class="container" style="top: 500px; left: 500px;">web pages which challenge conventions of reading,
-            writing, design, ownership, privacy, security, or identity</div>
-        <div class="container" style="top: 700px; left: 800px;">It was a web of sudden connections and personal links
-        </div>
-        <div class="container" style="top: 900px; left: 1100px;">A correlation between handmade web pages and handmade
-            print materials, such as zines, pamphlets, and artists books</div>
-        <div class="container" style="top: 400px; left: 600px;">To draw attention both to the manual labour involved in
-            the composition of web pages, and the functioning of the web page itself as a 'manual', a 'handbook', a set
-            of instructions</div>
-        <div class="container" style="top: 200px; left: 1500px;">In order to draw attention to the physical body.</div>
-        <div class="container" style="top: 300px; left: 1700px;">To suggest slowness and smallness as a forms of
-            resistance.</div>
-        <div class="container" style="top: 600px; left: 1900px;">To using it in poetic and intransigent ways</div>
+        <div class="container" style="top: 250px; left: 50px;">How creative is the spider that weaves the web</div>
+<div class="container" style="top: 350px; left: 800px;">How vulnerable it is to weave one, knowing it can break at any time</div>
+<div class="container" style="top: 250px; left: 1500px;">A web shines with tiny droplets on it when sunshine falls on it</div>
+<div class="container" style="top: 400px; left: 200px;">There are connections within a web</div>
+<div class="container" style="top: 500px; left: 500px;">Each strand of a web is an effort in making</div>
+<div class="container" style="top: 550px; left: 1400px;">The connections emerge into a pattern</div>
+<div class="container" style="top: 650px; left: 300px;">The modules keep getting larger</div>
+<div class="container" style="top: 750px; left: 900px;">It has a single point of origin, like a core idea</div>
+<div class="container" style="top: 850px; left: 500px;">It reminds one of a memory caught in time</div>
+<div class="container" style="top: 950px; left: 1200px;">It symbolizes perseverance and embracing complexity</div>
+<div class="container" style="top: 1050px; left: 800px;">It takes patience, logic, system, planning</div>
+<div class="container" style="top: 1150px; left: 400px;">It's meditative to build</div>
+<div class="container" style="top: 1250px; left: 1000px;">It is translucent and fragile, yet it can create layers</div>
+<div class="container" style="top: 1350px; left: 600px;">It gathers dust, catches bugs, and traps moments</div>
+<div class="container" style="top: 1450px; left: 1300px;">It tells a story of if a place has been inhabited or not</div>
+<div class="container" style="top: 1550px; left: 200px;">It invokes a sense of finding a long-forgotten treasure near it</div>
+<div class="container" style="top: 1650px; left: 1400px;">It invokes a feeling of being spread around spatially and taking support of whatever is standing around it</div>
+<div class="container" style="top: 1750px; left: 500px;">Web encompasses our virtual connections, the world wide web</div>
+<div class="container" style="top: 1850px; left: 1600px;">It acts as a source of information, a systematic entity</div>
+<div class="container" style="top: 1950px; left: 700px;">It symbolizes relationships between the web maker and the web supporter</div>
+<div class="container" style="top: 2050px; left: 300px;">It can sometimes entangle things on its way and pause someone from entering</div>
+
     </div>
 
     <audio id="hoverSound"
@@ -289,6 +295,7 @@
 
        // Custom cursor and trail logic
 
+// Ensure only one cursor element is added
 let cursor = document.querySelector('.cursor');
 if (!cursor) {
     cursor = document.createElement('div');
@@ -296,17 +303,18 @@ if (!cursor) {
     document.body.appendChild(cursor);
 }
 
+// Ensure proper initial position when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    cursor.style.left = '50%';
+    cursor.style.left = '50%'; // Set to center or another initial position
     cursor.style.top = '50%';
 });
 
 document.addEventListener('mousemove', (e) => {
-
+    // Update the position of the cursor based on the mouse position
     cursor.style.left = `${e.pageX - 10}px`;
     cursor.style.top = `${e.pageY - 10}px`;
 
-    // Create trail effect
+    // Create trail effect (if needed)
     const trail = document.createElement('div');
     trail.classList.add('trail');
     trail.style.left = `${e.pageX - 10}px`;
