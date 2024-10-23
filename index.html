@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typotomic</title>
+    <title>Handmade Web</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         @font-face {
             font-family: 'Atomic';
@@ -19,68 +22,79 @@
             font-stretch: 75% 125%;
         }
 
+        ::-webkit-scrollbar {
+            width: 25px;
+            height: 20px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #2c2c2c;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+            border-radius: 10px;
+            border: 3px solid #333;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(90deg, #ffff00, #ff0000, #ff6600);
+        }
+
         body {
-            display: flex;
             height: 100vh;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
             margin: 0;
-            flex-direction: column;
-            background-image: url('https://images.unsplash.com/photo-1632852702313-f49135ab8c94?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
-            background-size: cover;
-            background-repeat: no-repeat;
+            padding: 0;
+            background-color: black;
+            overflow-x: scroll;
+            white-space: nowrap;
             cursor: none;
         }
 
-        /* Custom cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: yellow;
-            position: absolute;
-            pointer-events: none;
-            mix-blend-mode: difference;
-            z-index: 1000;
+        .scroll-container {
+            display: inline-block;
+            position: relative;
+            height: 100%;
+            width: 100vw;
+            text-align: center;
         }
 
-        /* Cursor Comet effect */
-        .trail {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: yellow;
+        .container {
             position: absolute;
-            pointer-events: none;
-            opacity: 0.5;
-            z-index: 999;
-            animation: fadeOut 0.5s ease-out forwards;
+            padding: 20px;
+            border: 2px solid #4D4DFF;
+            border-radius: 15px;
+            background-color: transparent;
+            cursor: grab;
+            color: #4D4DFF;
+            transition: border-color 0.3s, color 0.3s;
+            font-family: 'Space Mono', monospace;
         }
 
-        @keyframes fadeOut {
-            0% {
-                opacity: 0.5;
-            }
-            100% {
-                opacity: 0;
-            }
+        .container:hover {
+            border-color: #FFFF00;
+            color: #FFFF00;
+            cursor: grabbing;
         }
 
         h1, h2 {
             mix-blend-mode: hard-light;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+            padding: 50px;
+            color: white;
         }
 
         h1 {
             font-size: 100px;
             font-weight: 400;
-            margin: 0;
         }
 
         h2 {
             font-size: 250px;
             font-weight: 400;
-            margin: 0;
         }
 
         .char {
@@ -121,30 +135,71 @@
             color: #4D4DFF;
             transition: font-variation-settings 2s ease;
         }
+
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: yellow;
+            position: fixed;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            z-index: 1000;
+        }
+
+        /* Cursor trail */
+        .trail {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: yellow;
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.5;
+            z-index: 999;
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <h1 id="particlesText" class="particles">
-        <span class="char">P</span>
-        <span class="char">A</span>
-        <span class="char">R</span>
-        <span class="char">T</span>
-        <span class="char">I</span>
-        <span class="char">C</span>
-        <span class="char">L</span>
-        <span class="char">E</span>
-        <span class="char">S</span>
-    </h1>
-<br><br><br><br>
-    <h2 id="atomicText" class="atomic">
-        <span class="char">A</span>
-        <span class="char">T</span>
-        <span class="char">O</span>
-        <span class="char">M</span>
-        <span class="char">I</span>
-        <span class="char">C</span>
-    </h2>
+    <div class="scroll-container">
+        <h1 id="particlesText" class="particles">
+
+            <span class="char">H</span>
+            <span class="char">A</span>
+            <span class="char">N</span>
+            <span class="char">D</span>
+            <span class="char">M</span>
+            <span class="char">A</span>
+            <span class="char">D</span>
+            <span class="char">E</span>
+        </h1>
+        <h2 id="atomicText" class="atomic">
+            <span class="char">W</span>
+            <span class="char">E</span>
+            <span class="char">B</span>
+        </h2>
+
+        <div class="container" style="top: 200px; left: 100px;">web pages coded by hand rather than by software</div>
+        <div class="container" style="top: 300px; left: 300px;">web pages which are provisional, temporary, or one-of-a-kind</div>
+        <div class="container" style="top: 500px; left: 500px;">web pages which challenge conventions of reading, writing, design, ownership, privacy, security, or identity</div>
+        <div class="container" style="top: 700px; left: 800px;">It was a web of sudden connections and personal links</div>
+        <div class="container" style="top: 900px; left: 1100px;">A correlation between handmade web pages and handmade print materials, such as zines, pamphlets, and artists books</div>
+        <div class="container" style="top: 400px; left: 600px;">To draw attention both to the manual labour involved in the composition of web pages, and the functioning of the web page itself as a 'manual', a 'handbook', a set of instructions</div>
+        <div class="container" style="top: 200px; left: 1500px;">In order to draw attention to the physical body.</div>
+        <div class="container" style="top: 300px; left: 1700px;">To suggest slowness and smallness as a forms of resistance.</div>
+        <div class="container" style="top: 600px; left: 1900px;">To using it in poetic and intransigent ways</div>
+    </div>
 
     <audio id="hoverSound" src="https://github.com/viltu08/Atomic/blob/aba625d5140a7e3fabe62723f30f0ef1ac73b7b9/Atomic_1.wav?raw=true" type="audio/wav"></audio>
 
@@ -179,7 +234,41 @@
             particlesText.style.fontVariationSettings = "'POSI' 0, 'SHAP' 0";
         });
 
-        // Custom cursor and trail
+        // Make containers draggable
+        const containers = document.querySelectorAll('.container');
+        containers.forEach(container => {
+            container.onmousedown = function(event) {
+                let shiftX = event.clientX - container.getBoundingClientRect().left;
+                let shiftY = event.clientY - container.getBoundingClientRect().top;
+
+                container.style.position = 'absolute';
+                container.style.zIndex = 1000;
+
+                moveAt(event.pageX, event.pageY);
+
+                function moveAt(pageX, pageY) {
+                    container.style.left = pageX - shiftX + 'px';
+                    container.style.top = pageY - shiftY + 'px';
+                }
+
+                function onMouseMove(event) {
+                    moveAt(event.pageX, event.pageY);
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+
+                container.onmouseup = function() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    container.onmouseup = null;
+                };
+            };
+
+            container.ondragstart = function() {
+                return false;
+            };
+        });
+
+        // Custom cursor and trail logic
         const cursor = document.createElement('div');
         cursor.classList.add('cursor');
         document.body.appendChild(cursor);
@@ -198,7 +287,7 @@
             // Remove trail after animation
             setTimeout(() => {
                 trail.remove();
-            }, 500);
+            }, 500);=
         });
     </script>
 
