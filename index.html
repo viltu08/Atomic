@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atomic Variable Font by Vishakha Ruhela</title>
+    <title>Atomic and Particles Variable Fonts by Vishakha Ruhela</title>
     <style>
         @font-face {
             font-family: 'Atomic';
@@ -12,22 +12,27 @@
             font-stretch: 75% 125%;
         }
 
+        @font-face {
+            font-family: 'Particles';
+            src: url('https://github.com/viltu08/Atomic/blob/e64666c2cf9dafdb77b43601f3bd3c9f1c19cf48/ParticlesVF.woff2') format('woff2');
+            font-weight: 100 900;
+            font-stretch: 75% 125%;
+        }
+
         body {
-            font-family: 'Atomic', sans-serif;
             display: flex;
             height: 100vh;
             justify-content: center;
             align-items: center;
             background-color: black;
             margin: 0;
+            flex-direction: column;
         }
 
         h1 {
             font-size: 200px;
             font-weight: 400;
-            font-variation-settings: 'NCLS' 0, 'ORBT' 0;
-            color: #4D4DFF;
-            transition: font-variation-settings 2s ease;
+            margin: 0;
         }
 
         .char {
@@ -44,11 +49,47 @@
         .char:not(:hover) {
             transition: transform 2s ease-out, color 2s ease-out;
         }
+
+        .particles {
+            font-family: 'Particles';
+            font-variation-settings: 'POSI' 0, 'SHAP' 0;
+            color: #FF4D4D;
+            transition: font-variation-settings 2s ease;
+        }
+
+        .particles .char:hover {
+            transform: scale(2);
+            color: #FFFF00;
+            transition: transform 0s, color 0s;
+        }
+
+        .particles .char:not(:hover) {
+            transition: transform 2s ease-out, color 2s ease-out;
+        }
+
+        .atomic {
+            font-family: 'Atomic', sans-serif;
+            font-variation-settings: 'NCLS' 0, 'ORBT' 0;
+            color: #4D4DFF;
+            transition: font-variation-settings 2s ease;
+        }
     </style>
 </head>
 <body>
 
-    <h1 id="atomicText">
+    <h1 id="particlesText" class="particles">
+        <span class="char">P</span>
+        <span class="char">A</span>
+        <span class="char">R</span>
+        <span class="char">T</span>
+        <span class="char">I</span>
+        <span class="char">C</span>
+        <span class="char">L</span>
+        <span class="char">E</span>
+        <span class="char">S</span>
+    </h1>
+
+    <h1 id="atomicText" class="atomic">
         <span class="char">A</span>
         <span class="char">T</span>
         <span class="char">O</span>
@@ -59,13 +100,24 @@
 
     <script>
         const atomicText = document.getElementById('atomicText');
+        const particlesText = document.getElementById('particlesText');
 
+        // Atomic font hover logic
         atomicText.addEventListener('mouseover', () => {
             atomicText.style.fontVariationSettings = "'NCLS' 1000, 'ORBT' 1000";
         });
 
         atomicText.addEventListener('mouseout', () => {
             atomicText.style.fontVariationSettings = "'NCLS' 0, 'ORBT' 0";
+        });
+
+        // Particles font hover logic
+        particlesText.addEventListener('mouseover', () => {
+            particlesText.style.fontVariationSettings = "'POSI' 1000, 'SHAP' 1000";
+        });
+
+        particlesText.addEventListener('mouseout', () => {
+            particlesText.style.fontVariationSettings = "'POSI' 0, 'SHAP' 0";
         });
     </script>
 
