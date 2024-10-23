@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atomic and Particles Variable Fonts by Vishakha Ruhela</title>
+    <title>Typotomic</title>
     <style>
         @font-face {
             font-family: 'Atomic';
@@ -59,7 +59,7 @@
         .particles {
             font-family: 'Particles';
             font-variation-settings: 'POSI' 0, 'SHAP' 0;
-            color: #4D4DFF;;
+            color: #4D4DFF;
             transition: font-variation-settings 2s ease;
         }
 
@@ -104,22 +104,33 @@
         <span class="char">C</span>
     </h2>
 
+    <audio id="hoverSound" src="https://github.com/viltu08/Atomic/blob/aba625d5140a7e3fabe62723f30f0ef1ac73b7b9/Atomic_1.wav?raw=true" type="audio/wav"></audio>
+
     <script>
         const atomicText = document.getElementById('atomicText');
         const particlesText = document.getElementById('particlesText');
+        const hoverSound = document.getElementById('hoverSound');
 
-        // Atomic font hover logic
+        // Sound
+        function playSound() {
+            hoverSound.currentTime = 0;
+            hoverSound.play();
+        }
+
+        // Atomic
         atomicText.addEventListener('mouseover', () => {
             atomicText.style.fontVariationSettings = "'NCLS' 1000, 'ORBT' 1000";
+            playSound();
         });
 
         atomicText.addEventListener('mouseout', () => {
             atomicText.style.fontVariationSettings = "'NCLS' 0, 'ORBT' 0";
         });
 
-        // Particles font hover logic
+        // Particles
         particlesText.addEventListener('mouseover', () => {
             particlesText.style.fontVariationSettings = "'POSI' 1000, 'SHAP' 1000";
+            playSound();
         });
 
         particlesText.addEventListener('mouseout', () => {
