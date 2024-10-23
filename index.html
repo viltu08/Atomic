@@ -6,38 +6,46 @@
     <title>Atomic Variable Font by Vishakha Ruhela</title>
     <style>
         @font-face {
-            font-family: 'AtomicVF';
-            src: url('path-to-your-variable-font.woff2') format('woff2');
+            font-family: 'Atomic';
+            src: url('https://github.com/viltu08/Atomic/blob/c0b9d78f1abdc433779f053475acd6c117b60d45/AtomicVF.woff2') format('woff2');
             font-weight: 100 900; /* Range of font weights */
             font-stretch: 75% 125%; /* Range of font widths */
         }
 
         body {
-            font-family: 'AtomicVF';
+            font-family: 'Atomic', sans-serif;
             display: flex;
             height: 100vh;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: black;
             margin: 0;
         }
 
         h1 {
-            font-size: 4rem;
-            font-variation-settings: 'wght' 400, 'wdth' 100; /* Default settings */
-            transition: font-variation-settings 0.3s ease; /* Smooth transition */
-            color: #002D62;
-        }
-
-        h1:hover {
-            font-variation-settings: 'wght' 700, 'wdth' 125; /* Change on hover */
-            color: #7CB9E8;
+            font-size: 200px;
+            font-weight: 400;
+            font-variation-settings: 'NCLS' 0, 'ORBT' 0;
+            color: #4D4DFF;
+            transition: font-variation-settings 1s ease;
         }
     </style>
 </head>
 <body>
 
-    <h1>ATOMIC</h1>
+    <h1 id="atomicText">ATOMIC</h1>
+
+    <script>
+        const atomicText = document.getElementById('atomicText');
+
+        atomicText.addEventListener('mouseover', () => {
+            atomicText.style.fontVariationSettings = "'NCLS' 1000, 'ORBT' 1000"; // Full range on hover
+        });
+
+        atomicText.addEventListener('mouseout', () => {
+            atomicText.style.fontVariationSettings = "'NCLS' 0, 'ORBT' 0"; // Reverts to mid-range on mouse out
+        });
+    </script>
 
 </body>
 </html>
