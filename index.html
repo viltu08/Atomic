@@ -14,7 +14,7 @@
 
         @font-face {
             font-family: 'Particles';
-            src: url('https://github.com/viltu08/Atomic/blob/e64666c2cf9dafdb77b43601f3bd3c9f1c19cf48/ParticlesVF.woff2') format('woff2');
+            src: url('https://raw.githubusercontent.com/viltu08/Atomic/e64666c2cf9dafdb77b43601f3bd3c9f1c19cf48/ParticlesVF.woff2') format('woff2');
             font-weight: 100 900;
             font-stretch: 75% 125%;
         }
@@ -30,6 +30,12 @@
         }
 
         h1 {
+            font-size: 100px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        h2 {
             font-size: 200px;
             font-weight: 400;
             margin: 0;
@@ -47,13 +53,13 @@
         }
 
         .char:not(:hover) {
-            transition: transform 2s ease-out, color 2s ease-out;
+            transition: transform 3s ease-out, color 3s ease-out;
         }
 
         .particles {
             font-family: 'Particles';
             font-variation-settings: 'POSI' 0, 'SHAP' 0;
-            color: #FF4D4D;
+            color: #4D4DFF;;
             transition: font-variation-settings 2s ease;
         }
 
@@ -68,7 +74,7 @@
         }
 
         .atomic {
-            font-family: 'Atomic', sans-serif;
+            font-family: 'Atomic';
             font-variation-settings: 'NCLS' 0, 'ORBT' 0;
             color: #4D4DFF;
             transition: font-variation-settings 2s ease;
@@ -89,14 +95,14 @@
         <span class="char">S</span>
     </h1>
 
-    <h1 id="atomicText" class="atomic">
+    <h2 id="atomicText" class="atomic">
         <span class="char">A</span>
         <span class="char">T</span>
         <span class="char">O</span>
         <span class="char">M</span>
         <span class="char">I</span>
         <span class="char">C</span>
-    </h1>
+    </h2>
 
     <script>
         const atomicText = document.getElementById('atomicText');
