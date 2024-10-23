@@ -143,15 +143,17 @@
             transition: font-variation-settings 2s ease;
         }
 
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: yellow;
-            pointer-events: none;
-            mix-blend-mode: difference;
-            z-index: 1000;
-        }
+  .cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: yellow;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 1000;
+    position: absolute;
+}
+
 
         /* Cursor trail */
         .trail {
@@ -285,27 +287,39 @@
             };
         });
 
-        // Custom cursor and trail logic
-        const cursor = document.createElement('div');
-        cursor.classList.add('cursor');
-        document.body.appendChild(cursor);
+       // Custom cursor and trail logic
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = `${e.pageX - 10}px`;
-            cursor.style.top = `${e.pageY - 10}px`;
+let cursor = document.querySelector('.cursor');
+if (!cursor) {
+    cursor = document.createElement('div');
+    cursor.classList.add('cursor');
+    document.body.appendChild(cursor);
+}
 
-            // Create trail
-            const trail = document.createElement('div');
-            trail.classList.add('trail');
-            trail.style.left = `${e.pageX - 10}px`;
-            trail.style.top = `${e.pageY - 10}px`;
-            document.body.appendChild(trail);
+document.addEventListener('DOMContentLoaded', () => {
+    cursor.style.left = '50%';
+    cursor.style.top = '50%';
+});
 
-            // Remove trail after animation
-            setTimeout(() => {
-                trail.remove();
-            }, 500);
-        });
+document.addEventListener('mousemove', (e) => {
+
+    cursor.style.left = `${e.pageX - 10}px`;
+    cursor.style.top = `${e.pageY - 10}px`;
+
+    // Create trail effect
+    const trail = document.createElement('div');
+    trail.classList.add('trail');
+    trail.style.left = `${e.pageX - 10}px`;
+    trail.style.top = `${e.pageY - 10}px`;
+    document.body.appendChild(trail);
+
+    // Remove trail after animation
+    setTimeout(() => {
+        trail.remove();
+    }, 500);
+});
+
+
     </script>
 
 </body>
